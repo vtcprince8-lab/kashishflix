@@ -1,74 +1,83 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>KashishFlix</title>
 
 <style>
 body{
-    background:#141414;
-    color:white;
-    font-family:Arial,sans-serif;
-    margin:0;
+  margin:0;
+  background:#141414;
+  color:white;
+  font-family:Arial;
 }
 
-.nav{
-    padding:20px;
-    font-size:32px;
-    color:#E50914;
-    font-weight:bold;
+.logo{
+  color:#E50914;
+  font-size:35px;
+  font-weight:bold;
+  padding:20px;
 }
 
 .row{
-    padding:20px;
+  padding:20px;
 }
 
-.row h2{
-    margin-bottom:15px;
+.photos{
+  display:flex;
+  gap:15px;
+  overflow-x:auto;
 }
 
-.posters{
-    display:flex;
-    overflow-x:auto;
-    gap:15px;
+.photos img{
+  width:180px;
+  border-radius:10px;
+  cursor:pointer;
 }
 
-.posters img{
-    width:180px;
-    border-radius:10px;
-    transition:.3s;
+#viewer{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:black;
 }
 
-.posters img:hover{
-    transform:scale(1.08);
+#viewer img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
 }
 </style>
 </head>
 
 <body>
 
-<div class="nav">❤️ KASHISHFLIX ❤️</div>
+<div class="logo">❤️ KASHISHFLIX ❤️</div>
 
 <div class="row">
-<h2>Our Memories</h2>
+<h2>Her Moments</h2>
 
-<div class="posters">
-
-<a href="memory1.html">
-<img src="https://via.placeholder.com/300x450?text=Memory+1">
-</a>
-
-<a href="memory2.html">
-<img src="https://via.placeholder.com/300x450?text=Memory+2">
-</a>
-
-<a href="memory3.html">
-<img src="https://via.placeholder.com/300x450?text=Memory+3">
-</a>
+<div class="photos">
+<img src="PHOTO1_NAME" onclick="openImg(this.src)">
+<img src="PHOTO2_NAME" onclick="openImg(this.src)">
+</div>
 
 </div>
+
+<div id="viewer" onclick="closeImg()">
+<img id="big">
 </div>
+
+<script>
+function openImg(src){
+  document.getElementById("viewer").style.display="block";
+  document.getElementById("big").src=src;
+}
+
+function closeImg(){
+  document.getElementById("viewer").style.display="none";
+}
+</script>
 
 </body>
 </html>
